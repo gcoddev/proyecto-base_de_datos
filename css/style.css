@@ -1,0 +1,16 @@
+* {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.row .formulario {
+    max-width: 75%;
+    width: 400px;
+    margin: auto;
+}
+
+@media screen and (max-width: 575px) {
+    * {
+        font-size: 12px;
+    }
+}
