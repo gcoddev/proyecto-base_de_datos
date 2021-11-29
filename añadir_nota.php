@@ -106,15 +106,15 @@ $cod_materia = $_REQUEST['cod_materia'];
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_practicas" class="form-check-label">Practicas</label>
-                        <input type="text" class="form-control" id="pt_practicas" name="practicas_1t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_1t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_1t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_1t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_proyectos" class="form-check-label">Proyectos</label>
-                        <input type="text" class="form-control" id="pt_proyectos" name="proyectos_1t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_1t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_1t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_1t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_examen" class="form-check-label">Examen</label>
-                        <input type="text" class="form-control" id="pt_examen" name="examen_1t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_1t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_1t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_1t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12 mt-1">
                         <label class="form-check-label">Nota Primer Trimestre</label>
@@ -128,15 +128,15 @@ $cod_materia = $_REQUEST['cod_materia'];
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_practicas" class="form-check-label">Practicas</label>
-                        <input type="text" class="form-control" id="pt_practicas" name="practicas_2t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_2t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_2t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_2t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_proyectos" class="form-check-label">Proyectos</label>
-                        <input type="text" class="form-control" id="pt_proyectos" name="proyectos_2t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_2t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_examen" class="form-check-label">Examen</label>
-                        <input type="text" class="form-control" id="pt_examen" name="examen_2t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_2t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_2t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_2t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12 mt-1">
                         <label class="form-check-label">Nota Segundo Trimestre</label>
@@ -150,15 +150,15 @@ $cod_materia = $_REQUEST['cod_materia'];
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_practicas" class="form-check-label">Practicas</label>
-                        <input type="text" class="form-control" id="pt_practicas" name="practicas_3t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_3t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_3t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_3t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_proyectos" class="form-check-label">Proyectos</label>
-                        <input type="text" class="form-control" id="pt_proyectos" name="proyectos_3t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_3t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
                         <label for="pt_examen" class="form-check-label">Examen</label>
-                        <input type="text" class="form-control" id="pt_examen" name="examen_3t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_3t'] ?>">
+                        <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_3t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_3t'] ?>">
                     </div>
                     <div class="col-md-3 col-sm-6 col-12 mt-1">
                         <label class="form-check-label">Nota Tercer Trimestre</label>

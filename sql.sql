@@ -23,7 +23,7 @@ insert into aulas_labos values('LAB2', 15, 7);
 insert into aulas_labos values('LAB3', 15, 7);
 insert into aulas_labos values('COMP1', 15, 7);
 insert into aulas_labos values('COMP2', 15, 7);
-select * from aulas_labos;
+# select * from aulas_labos;
 
 /* PARALELO */
 create table paralelo(
@@ -40,7 +40,7 @@ insert into paralelo values(267, '2do "C"');
 insert into paralelo values(365, '3ro "A"');
 insert into paralelo values(366, '3ro "B"');
 insert into paralelo values(367, '3ro "C"');
-select * from paralelo;
+# select * from paralelo;
 
 /* PARALELO-AULA */
 create table par_aula(
@@ -59,7 +59,7 @@ insert into par_aula values(267, 'C2');
 insert into par_aula values(365, 'A3');
 insert into par_aula values(366, 'B3');
 insert into par_aula values(367, 'C3');
-select * from par_aula;
+ # select * from par_aula;
 
 
 /* PROFESOR */
@@ -74,18 +74,18 @@ create table profesor(
 );
 alter table profesor auto_increment = 11;
 
-insert into profesor values(null, 10000001, 'Limachi Quispe', 'Mary Luz', 70007002, 'mary_13', 'mary_13');
-insert into profesor values(null, 10000002, 'Quispe Rodriguez', 'Luis', 70007005, 'luis_16', 'luis_16');
-insert into profesor values(null, 10000003, 'Peña Yujra', 'Leyla', 70007006, 'leyla_17', 'leyla_17');
-insert into profesor values(null, 10000004, 'Yapur Coche', 'Miguel', 70007008, 'miguel_19', 'miguel_19');
-insert into profesor values(null, 10000005, 'Osco Vera', 'Yessica', 70007009, 'yessica_20', 'yessica_20');
-insert into profesor values(null, 10000006, 'Rojas Pari', 'Cielo', 70007010, 'cielo_21', 'cielo_21');
-insert into profesor values(null, 10000007, 'Quispe Mamani', 'Vladimir', 70007011, 'vladimir_22', 'vladimir_22');
-insert into profesor values(null, 10000008, 'Apaza Quispe', 'Rosmelia', 70007012, 'rosmelia_23', 'rosmelia_23');
-insert into profesor values(null, 10000009, 'Mamani Tintaya', 'Edwin', 70007013, 'edwin_24', 'edwin_24');
-insert into profesor values(null, 10000010, 'Misme Nina', 'Karen', 70007015, 'karen_26', 'karen_26');
-insert into profesor values(null, 10000011, 'Paucara Laura', 'Brayan', 70007016, 'brayan_27', 'brayan_27');
-select * from profesor;
+insert into profesor values(null, 10000001, 'Limachi Quispe', 'Mary Luz', 70007002, 'mary_11', 'mary_11');
+insert into profesor values(null, 10000002, 'Quispe Rodriguez', 'Luis', 70007005, 'luis_12', 'luis_12');
+insert into profesor values(null, 10000003, 'Peña Yujra', 'Leyla', 70007006, 'leyla_13', 'leyla_13');
+insert into profesor values(null, 10000004, 'Yapur Coche', 'Miguel', 70007008, 'miguel_14', 'miguel_14');
+insert into profesor values(null, 10000005, 'Osco Vera', 'Yessica', 70007009, 'yessica_15', 'yessica_15');
+insert into profesor values(null, 10000006, 'Rojas Pari', 'Cielo', 70007010, 'cielo_16', 'cielo_16');
+insert into profesor values(null, 10000007, 'Quispe Mamani', 'Vladimir', 70007011, 'vladimir_17', 'vladimir_17');
+insert into profesor values(null, 10000008, 'Apaza Quispe', 'Rosmelia', 70007012, 'rosmelia_18', 'rosmelia_18');
+insert into profesor values(null, 10000009, 'Mamani Tintaya', 'Edwin', 70007013, 'edwin_19', 'edwin_19');
+insert into profesor values(null, 10000010, 'Misme Nina', 'Karen', 70007015, 'karen_20', 'karen_20');
+insert into profesor values(null, 10000011, 'Paucara Laura', 'Brayan', 70007016, 'brayan_21', 'brayan_21');
+# select * from profesor;
 
 /* ESTUDIANTE */
 create table estudiante(
@@ -204,7 +204,7 @@ insert into estudiante values(9008, 50008008, 8, 'Quispe', 'Condori', 'Dayana Ro
 insert into estudiante values(9009, 50008009, 9, 'Quispe', 'Poma', 'Adalid Esau', 14, 67015009, 367);
 insert into estudiante values(9010, 50008010, 10, 'Ramos', 'Bautista', 'Gary Nicolas', 14, 67015010, 367);
 
-select * from estudiante;
+# select * from estudiante;
 
 /* NOTAS */
 create table notas(
@@ -229,13 +229,12 @@ delimiter //
 create procedure ciclo(in istart int, in iend int)
 begin
 while istart <= iend do
-insert into notas(nota_final) values(0);
+insert into notas values(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 set istart = istart + 1;
 end while;
 end //
 call ciclo (1, 990);
-select * from notas;
-
+# select * from notas;
 
 /* MATERIA */
 create table materia(
@@ -254,7 +253,7 @@ insert into materia values('FIL' ,'FILOSOFIA');
 insert into materia values('FIS' ,'FISICA');
 insert into materia values('QMC' ,'QUIMICA');
 insert into materia values('APV' ,'ARTES PLASTICAS Y VISUALES');
-select * from materia;
+# select * from materia;
 
 /* PROF-MAT-PAR */
 create table prof_mat_par(
@@ -376,7 +375,7 @@ insert into prof_mat_par values(21, 'VER', 365);
 insert into prof_mat_par values(21, 'VER', 366);
 insert into prof_mat_par values(21, 'VER', 367);
 
-select * from prof_mat_par;
+# select * from prof_mat_par;
 
 /* MATERIA-ESTUDIANTE-NOTAS */
 create table mat_est_not(
@@ -1485,4 +1484,5 @@ insert into mat_est_not(cod_materia, n_rude) values('MUS', 9010);
 insert into mat_est_not(cod_materia, n_rude) values('QMC', 9010);
 insert into mat_est_not(cod_materia, n_rude) values('VER', 9010);
 
-select * from mat_est_not;
+# select * from mat_est_not;
+
