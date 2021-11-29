@@ -9,6 +9,18 @@ $practicas_2t = $_POST['practicas_2t'];
 $proyectos_2t = $_POST['proyectos_2t'];
 $examen_2t = $_POST['examen_2t'];
 
+if ($practicas_2t < 36) {
+    $practicas_2t = 36;
+}
+
+if ($proyectos_2t < 36) {
+    $proyectos_2t = 36;
+}
+
+if ($examen_2t < 36) {
+    $examen_2t = 36;
+}
+
 $nota_2t = ($practicas_2t + $proyectos_2t + $examen_2t) / 3;
 $nota_final = $nota_2t / 3;
 
