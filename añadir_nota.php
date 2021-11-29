@@ -7,6 +7,7 @@ if (!$_SESSION['user']) {
 }
 
 include_once 'conexion.php';
+$id = $_REQUEST['id'];
 $cod_notas = $_REQUEST['cod_notas'];
 $n_rude = $_REQUEST['n_rude'];
 $cod_paralelo = $_REQUEST['cod_paralelo'];
@@ -92,94 +93,129 @@ $cod_materia = $_REQUEST['cod_materia'];
         </div>
     </div>
 
-
-    <div class="container-fluid mt-3">
-        <form action="update.php" method="POST" class="form-control">
-            <input type="text" name="cod_notas" hidden value="<?php echo $cod_notas ?>">
-            <input type="text" name="cod_paralelo" hidden value="<?php echo $cod_paralelo ?>">
-            <input type="text" name="cod_materia" hidden value="<?php echo $cod_materia ?>">
-            <?php
-            $notas_consulta = $pdo->query("SELECT * FROM notas WHERE cod_notas = $cod_notas");
-            foreach ($notas_consulta as $nota) :
-            ?>
-                <div class="fs-4">Primer Trimestre</div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_practicas" class="form-check-label">Practicas</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_1t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_1t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_proyectos" class="form-check-label">Proyectos</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_1t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_1t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_examen" class="form-check-label">Examen</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_1t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_1t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mt-1">
-                        <label class="form-check-label">Nota Primer Trimestre</label>
-                        <div type="text" class="alert alert-info">
-                            <?php echo $nota['nota_1t'] ?>
+    <?php
+    if ($id == 1) :
+    ?>
+        <div class="container-fluid mt-3">
+            <form action="update1.php" method="POST" class="form-control">
+                <input type="text" name="cod_notas" hidden value="<?php echo $cod_notas ?>">
+                <input type="text" name="cod_paralelo" hidden value="<?php echo $cod_paralelo ?>">
+                <input type="text" name="cod_materia" hidden value="<?php echo $cod_materia ?>">
+                <?php
+                $notas_consulta = $pdo->query("SELECT * FROM notas WHERE cod_notas = $cod_notas");
+                foreach ($notas_consulta as $nota) :
+                ?>
+                    <div class="fs-4 mt-3">Primer Trimestre</div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_practicas" class="form-check-label">Practicas</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_1t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_1t'] ?>" required>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_proyectos" class="form-check-label">Proyectos</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_1t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_1t'] ?>" required>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_examen" class="form-check-label">Examen</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_1t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_1t'] ?>" required>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12 mt-1">
+                            <label class="form-check-label">Nota Primer Trimestre</label>
+                            <div type="text" class="alert alert-info">
+                                <?php echo $nota['nota_1t'] ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="fs-4 mt-3">Segundo Trimestre</div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_practicas" class="form-check-label">Practicas</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_2t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_2t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_proyectos" class="form-check-label">Proyectos</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_2t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_examen" class="form-check-label">Examen</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_2t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_2t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mt-1">
-                        <label class="form-check-label">Nota Segundo Trimestre</label>
-                        <div class="alert alert-info">
-                            <?php echo $nota['nota_2t'] ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fs-4 mt-3">Tercer Trimestre</div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_practicas" class="form-check-label">Practicas</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_3t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_3t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_proyectos" class="form-check-label">Proyectos</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_3t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <label for="pt_examen" class="form-check-label">Examen</label>
-                        <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_3t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_3t'] ?>">
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mt-1">
-                        <label class="form-check-label">Nota Tercer Trimestre</label>
-                        <div class="alert alert-info">
-                            <?php echo $nota['nota_3t'] ?>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
                 <div class="d-flex justify-content-center mb-2">
                     <input type="submit" value="Actualizar datos" class="btn btn-success mx-1">
                     <a href="alumnos.php?cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>" class="btn btn-warning mx-1">Volver</a>
                 </div>
-            <?php endforeach ?>
-        </form>
-    </div>
-
-
-
-
-
-
+            </form>
+        </div>
+    <?php
+    endif;
+    if ($id == 2) :
+    ?>
+        <div class="container-fluid mt-3">
+            <form action="update2.php" method="POST" class="form-control">
+                <input type="text" name="cod_notas" hidden value="<?php echo $cod_notas ?>">
+                <input type="text" name="cod_paralelo" hidden value="<?php echo $cod_paralelo ?>">
+                <input type="text" name="cod_materia" hidden value="<?php echo $cod_materia ?>">
+                <?php
+                $notas_consulta = $pdo->query("SELECT * FROM notas WHERE cod_notas = $cod_notas");
+                foreach ($notas_consulta as $nota) :
+                ?>
+                    <div class="fs-4 mt-3">Segundo Trimestre</div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_practicas" class="form-check-label">Practicas</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_2t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_2t'] ?>" required>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_proyectos" class="form-check-label">Proyectos</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_2t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_2t'] ?>" required>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_examen" class="form-check-label">Examen</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_2t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_2t'] ?>" required>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12 mt-1">
+                            <label class="form-check-label">Nota Segundo Trimestre</label>
+                            <div class="alert alert-info">
+                                <?php echo $nota['nota_2t'] ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <div class="d-flex justify-content-center mb-2">
+                    <input type="submit" value="Actualizar datos" class="btn btn-success mx-1">
+                    <a href="alumnos.php?cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>" class="btn btn-warning mx-1">Volver</a>
+                </div>
+            </form>
+        </div>
+    <?php
+    endif;
+    if ($id == 3) :
+    ?>
+        <div class="container-fluid mt-3">
+            <form action="update3.php" method="POST" class="form-control">
+                <input type="text" name="cod_notas" hidden value="<?php echo $cod_notas ?>">
+                <input type="text" name="cod_paralelo" hidden value="<?php echo $cod_paralelo ?>">
+                <input type="text" name="cod_materia" hidden value="<?php echo $cod_materia ?>">
+                <?php
+                $notas_consulta = $pdo->query("SELECT * FROM notas WHERE cod_notas = $cod_notas");
+                foreach ($notas_consulta as $nota) :
+                ?>
+                    <div class="fs-4 mt-3">Tercer Trimestre</div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_practicas" class="form-check-label">Practicas</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_practicas" name="practicas_3t" placeholder="Ingrese su nota" value="<?php echo $nota['practicas_3t'] ?>">
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_proyectos" class="form-check-label">Proyectos</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_proyectos" name="proyectos_3t" placeholder="Ingrese su nota" value="<?php echo $nota['proyectos_3t'] ?>">
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <label for="pt_examen" class="form-check-label">Examen</label>
+                            <input type="number" min="0" max="100" class="form-control" id="pt_examen" name="examen_3t" placeholder="Ingrese su nota" value="<?php echo $nota['examen_3t'] ?>">
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12 mt-1">
+                            <label class="form-check-label">Nota Tercer Trimestre</label>
+                            <div class="alert alert-info">
+                                <?php echo $nota['nota_3t'] ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <div class="d-flex justify-content-center mb-2">
+                    <input type="submit" value="Actualizar datos" class="btn btn-success mx-1">
+                    <a href="alumnos.php?cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>" class="btn btn-warning mx-1">Volver</a>
+                </div>
+            </form>
+        </div>
+    <?php endif; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

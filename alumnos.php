@@ -103,7 +103,6 @@ $cod_materia = $_REQUEST['cod_materia'];
                     <th class="text-center">3er Trim.</th>
                     <th class="text-center">Nota Final</th>
                     <th class="text-center">Estado</th>
-                    <th class="text-center">Actualizar</th>
                 </tr>
                 <?php
                 $paralelo_datos = $pdo->query("SELECT * FROM estudiante WHERE cod_paralelo = '$cod_paralelo'");
@@ -161,16 +160,25 @@ $cod_materia = $_REQUEST['cod_materia'];
                                 }
                                 ?>
                             </td>
-                            <td class="text-center fw-bold">
-                                <?php
-                                $nt = $nota['nota_1t'];
-                                if ($nt == 0) {
-                                    echo "-";
-                                } else {
-                                    echo $nt;
-                                }
-                                ?>
-                            </td>
+                            <?php
+                            $nt = $nota['nota_1t'];
+                            if ($nt == 0) :
+                            ?>
+                                <td class="text-center">
+                                    <a href="añadir_nota.php?id=1&n_rude=<?php echo $n_rude ?>&cod_notas=<?php echo $cod_notas ?>&cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>">Editar</a>
+                                </td>
+                            <?php
+                            endif;
+                            ?>
+                            <?php
+                            if ($nt > 0) :
+                            ?>
+                                <td class="text-center fw-bold">
+                                    <?php echo $nt; ?>
+                                </td>
+                            <?php
+                            endif;
+                            ?>
 
                             <td class="text-center">
                                 <?php
@@ -202,16 +210,25 @@ $cod_materia = $_REQUEST['cod_materia'];
                                 }
                                 ?>
                             </td>
-                            <td class="text-center fw-bold">
-                                <?php
-                                $nt = $nota['nota_2t'];
-                                if ($nt == 0) {
-                                    echo "-";
-                                } else {
-                                    echo $nt;
-                                }
-                                ?>
-                            </td>
+                            <?php
+                            $nt = $nota['nota_2t'];
+                            if ($nt == 0) :
+                            ?>
+                                <td class="text-center">
+                                    <a href="añadir_nota.php?id=2&n_rude=<?php echo $n_rude ?>&cod_notas=<?php echo $cod_notas ?>&cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>">Editar</a>
+                                </td>
+                            <?php
+                            endif;
+                            ?>
+                            <?php
+                            if ($nt > 0) :
+                            ?>
+                                <td class="text-center fw-bold">
+                                    <?php echo $nt; ?>
+                                </td>
+                            <?php
+                            endif;
+                            ?>
 
                             <td class="text-center">
                                 <?php
@@ -243,16 +260,25 @@ $cod_materia = $_REQUEST['cod_materia'];
                                 }
                                 ?>
                             </td>
-                            <td class="text-center fw-bold">
-                                <?php
-                                $nt = $nota['nota_3t'];
-                                if ($nt == 0) {
-                                    echo "-";
-                                } else {
-                                    echo $nt;
-                                }
-                                ?>
-                            </td>
+                            <?php
+                            $nt = $nota['nota_3t'];
+                            if ($nt == 0) :
+                            ?>
+                                <td class="text-center">
+                                    <a href="añadir_nota.php?id=3&n_rude=<?php echo $n_rude ?>&cod_notas=<?php echo $cod_notas ?>&cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>">Editar</a>
+                                </td>
+                            <?php
+                            endif;
+                            ?>
+                            <?php
+                            if ($nt > 0) :
+                            ?>
+                                <td class="text-center fw-bold">
+                                    <?php echo $nt; ?>
+                                </td>
+                            <?php
+                            endif;
+                            ?>
 
                             <td class="text-center fw-bold">
                                 <?php
@@ -275,10 +301,6 @@ $cod_materia = $_REQUEST['cod_materia'];
                                     Reprobado
                                 </td>
                             <?php endif ?>
-
-                            <td class="text-center">
-                                <a href="añadir_nota.php?n_rude=<?php echo $n_rude ?>&cod_notas=<?php echo $cod_notas ?>&cod_paralelo=<?php echo $cod_paralelo ?>&cod_materia=<?php echo $cod_materia ?>">Ver</a>
-                            </td>
                     </tr>
             <?php endforeach;
                     endforeach ?>
